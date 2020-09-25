@@ -5,7 +5,7 @@
  */
 package examen2_danielalvarado;
 
-import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -57,6 +57,7 @@ public class PrincipalExamen extends javax.swing.JFrame {
         tabla_Usuarios = new javax.swing.JTable();
         jb_Llenar = new javax.swing.JButton();
         jb_Eliminar = new javax.swing.JButton();
+        jb_EnviarSolicitud = new javax.swing.JButton();
         jd_LogIn = new javax.swing.JDialog();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -64,11 +65,23 @@ public class PrincipalExamen extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jp_PassIn = new javax.swing.JPasswordField();
         jb_Ingresar = new javax.swing.JButton();
+        jd_VerSolicitudes = new javax.swing.JDialog();
+        jLabel16 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        lista_Solicitudes = new javax.swing.JList<>();
+        jLabel13 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        arbol_Receptores = new javax.swing.JTree();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        lista_Amigos = new javax.swing.JList<>();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jmi_IngresarSesion = new javax.swing.JMenuItem();
         jmi_VerUsuarios = new javax.swing.JMenuItem();
         jmi_CrearUsuario = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         jd_CrearUsuario.setTitle("Crear Usuario");
 
@@ -216,38 +229,52 @@ public class PrincipalExamen extends javax.swing.JFrame {
             }
         });
 
+        jb_EnviarSolicitud.setText("Enviar Solicitud");
+        jb_EnviarSolicitud.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_EnviarSolicitudMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jd_VerUsuariosLayout = new javax.swing.GroupLayout(jd_VerUsuarios.getContentPane());
         jd_VerUsuarios.getContentPane().setLayout(jd_VerUsuariosLayout);
         jd_VerUsuariosLayout.setHorizontalGroup(
             jd_VerUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_VerUsuariosLayout.createSequentialGroup()
-                .addGap(339, 339, 339)
-                .addComponent(jLabel9)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_VerUsuariosLayout.createSequentialGroup()
                 .addContainerGap(142, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(135, 135, 135))
+            .addGroup(jd_VerUsuariosLayout.createSequentialGroup()
                 .addGroup(jd_VerUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_VerUsuariosLayout.createSequentialGroup()
+                    .addGroup(jd_VerUsuariosLayout.createSequentialGroup()
+                        .addGap(339, 339, 339)
+                        .addComponent(jLabel9))
+                    .addGroup(jd_VerUsuariosLayout.createSequentialGroup()
+                        .addGap(167, 167, 167)
                         .addComponent(jb_Llenar, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(85, 85, 85)
+                        .addGap(18, 18, 18)
                         .addComponent(jb_Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(266, 266, 266))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_VerUsuariosLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(135, 135, 135))))
+                        .addGap(18, 18, 18)
+                        .addComponent(jb_EnviarSolicitud, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jd_VerUsuariosLayout.setVerticalGroup(
             jd_VerUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_VerUsuariosLayout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(jLabel9)
-                .addGap(32, 32, 32)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
-                .addGroup(jd_VerUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jb_Llenar, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jb_Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addGroup(jd_VerUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_VerUsuariosLayout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(187, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_VerUsuariosLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jd_VerUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jb_Llenar, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jb_Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jb_EnviarSolicitud, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(65, 65, 65))))
         );
 
         jd_LogIn.setTitle("Log In");
@@ -307,7 +334,60 @@ public class PrincipalExamen extends javax.swing.JFrame {
                 .addContainerGap(84, Short.MAX_VALUE))
         );
 
+        jd_VerSolicitudes.setTitle("Solicitudes");
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel16.setText("Ver Solicitudes");
+
+        lista_Solicitudes.setModel(new DefaultListModel());
+        lista_Solicitudes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lista_SolicitudesMouseClicked(evt);
+            }
+        });
+        jScrollPane4.setViewportView(lista_Solicitudes);
+
+        javax.swing.GroupLayout jd_VerSolicitudesLayout = new javax.swing.GroupLayout(jd_VerSolicitudes.getContentPane());
+        jd_VerSolicitudes.getContentPane().setLayout(jd_VerSolicitudesLayout);
+        jd_VerSolicitudesLayout.setHorizontalGroup(
+            jd_VerSolicitudesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_VerSolicitudesLayout.createSequentialGroup()
+                .addGroup(jd_VerSolicitudesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_VerSolicitudesLayout.createSequentialGroup()
+                        .addGap(261, 261, 261)
+                        .addComponent(jLabel16))
+                    .addGroup(jd_VerSolicitudesLayout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 574, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(70, Short.MAX_VALUE))
+        );
+        jd_VerSolicitudesLayout.setVerticalGroup(
+            jd_VerSolicitudesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_VerSolicitudesLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jLabel16)
+                .addGap(38, 38, 38)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(100, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel13.setText("LeoGram");
+
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Receptores");
+        arbol_Receptores.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane2.setViewportView(arbol_Receptores);
+
+        lista_Amigos.setModel(new DefaultListModel());
+        jScrollPane3.setViewportView(lista_Amigos);
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel14.setText("Lista de amigos");
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel15.setText("Arbol Receptores");
 
         jMenu1.setText("Opciones");
 
@@ -320,6 +400,9 @@ public class PrincipalExamen extends javax.swing.JFrame {
         jmi_CrearUsuario.setText("Crear Usuario");
         jMenu1.add(jmi_CrearUsuario);
 
+        jMenuItem1.setText("Ver solicitudes");
+        jMenu1.add(jMenuItem1);
+
         jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
@@ -328,11 +411,35 @@ public class PrincipalExamen extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1080, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(141, 141, 141)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13))
+                .addContainerGap(79, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(122, 122, 122)
+                .addComponent(jLabel15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel14)
+                .addGap(311, 311, 311))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 722, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(jLabel13)
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel15))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         pack();
@@ -454,6 +561,66 @@ public class PrincipalExamen extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_jb_IngresarMouseClicked
+
+    private void lista_SolicitudesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lista_SolicitudesMouseClicked
+       DefaultListModel modelo = (DefaultListModel) lista_Solicitudes.getModel();
+       DefaultListModel modelo2 = (DefaultListModel) lista_Amigos.getModel();
+       int index = lista_Solicitudes.getSelectedIndex();
+       
+       if(index >= 0){
+           Solicitud s = (Solicitud) modelo.getElementAt(index);
+           
+           int i = JOptionPane.showConfirmDialog(jd_VerSolicitudes, ""+s.getSolicitud());
+           
+           if(i == JOptionPane.OK_OPTION){
+               
+               Usuario u = s.getUsuario();
+               
+               userLoged.getAmigos().add(u);
+               
+               modelo.remove(index);
+               modelo2.addElement(u);
+               
+               userLoged.getSolicitudes().remove(s);
+               
+               lista_Solicitudes.setModel(modelo);
+               lista_Amigos.setModel(modelo2);
+               
+               JOptionPane.showMessageDialog(jd_VerSolicitudes, "La solicitud de amistad ha sido aceptada");
+               
+           }else{
+               JOptionPane.showMessageDialog(jd_VerSolicitudes, "No se acepto la solicitud de amistad");
+           }
+           
+       }else{
+           JOptionPane.showMessageDialog(jd_VerSolicitudes, "No tiene solicitudes en la lista");
+       }
+       
+    }//GEN-LAST:event_lista_SolicitudesMouseClicked
+
+    private void jb_EnviarSolicitudMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_EnviarSolicitudMouseClicked
+        DefaultTableModel modelo = (DefaultTableModel) tabla_Usuarios.getModel();
+        int index = tabla_Usuarios.getSelectedRow();
+        
+        if(index >= 0){
+            
+            Solicitud s = new Solicitud(
+                    "El usuario "+userLoged.getUsuario()+" te ha enviado una solicitud de amistad",
+                    userLoged
+            );
+            
+            admin.cargarArchivo();
+            
+            admin.getUsuarios().get(index).getSolicitudes().add(s);
+            
+            admin.escribirArchivo();
+            
+            JOptionPane.showMessageDialog(jd_VerUsuarios, "Se envio la solicitud de amistad correctament");
+            
+        }else{
+            JOptionPane.showMessageDialog(jd_VerUsuarios, "No hay un usuario seleccionado!");
+        }
+    }//GEN-LAST:event_jb_EnviarSolicitudMouseClicked
     
     public void limpiarUsuarios(){
          tabla_Usuarios.setModel(new javax.swing.table.DefaultTableModel(
@@ -518,10 +685,15 @@ public class PrincipalExamen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTree arbol_Receptores;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -532,13 +704,19 @@ public class PrincipalExamen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JButton jb_CrearUsuario;
     private javax.swing.JButton jb_Eliminar;
+    private javax.swing.JButton jb_EnviarSolicitud;
     private javax.swing.JButton jb_Ingresar;
     private javax.swing.JButton jb_Llenar;
     private javax.swing.JDialog jd_CrearUsuario;
     private javax.swing.JDialog jd_LogIn;
+    private javax.swing.JDialog jd_VerSolicitudes;
     private javax.swing.JDialog jd_VerUsuarios;
     private javax.swing.JMenuItem jmi_CrearUsuario;
     private javax.swing.JMenuItem jmi_IngresarSesion;
@@ -552,6 +730,8 @@ public class PrincipalExamen extends javax.swing.JFrame {
     private javax.swing.JTextField jt_Nombre;
     private javax.swing.JTextField jt_NumTelefono;
     private javax.swing.JTextField jt_Username;
+    private javax.swing.JList<String> lista_Amigos;
+    private javax.swing.JList<String> lista_Solicitudes;
     private javax.swing.JTable tabla_Usuarios;
     // End of variables declaration//GEN-END:variables
 

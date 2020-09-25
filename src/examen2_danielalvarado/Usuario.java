@@ -5,12 +5,14 @@
  */
 package examen2_danielalvarado;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Usuario extends Persona {
+public class Usuario extends Persona implements Serializable{
     
     private String usuario;
     private String password;
+    private ArrayList<Solicitud> solicitudes = new ArrayList();
     private ArrayList<Chats> chats = new ArrayList();
     private ArrayList<Usuario> amigos = new ArrayList();
     private int calidadWifi;
@@ -40,6 +42,14 @@ public class Usuario extends Persona {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public ArrayList<Solicitud> getSolicitudes() {
+        return solicitudes;
+    }
+
+    public void setSolicitudes(ArrayList<Solicitud> solicitudes) {
+        this.solicitudes = solicitudes;
     }
 
     public ArrayList<Chats> getChats() {
