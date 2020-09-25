@@ -77,6 +77,7 @@ public class Usuario extends Persona {
     public double enviar(int calidadReceptor) {
         
         return (calidadReceptor*0.6) * (calidadWifi * 0.85);
+        
     }
     
     
