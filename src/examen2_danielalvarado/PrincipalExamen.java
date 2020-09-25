@@ -5,9 +5,13 @@
  */
 package examen2_danielalvarado;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -20,9 +24,9 @@ public class PrincipalExamen extends javax.swing.JFrame {
      */
     public PrincipalExamen() {
         initComponents();
-        
+
         admin = new AdminUsuarios("./Usuarios.use");
-        
+
     }
 
     /**
@@ -69,6 +73,19 @@ public class PrincipalExamen extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         lista_Solicitudes = new javax.swing.JList<>();
+        popup_ListaAmigos = new javax.swing.JPopupMenu();
+        jmi_EnviarMensaje = new javax.swing.JMenuItem();
+        jd_EnviarMensaje = new javax.swing.JDialog();
+        jLabel17 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        text_Contenido = new javax.swing.JTextArea();
+        jb_Enviar = new javax.swing.JButton();
+        popup_Arbol = new javax.swing.JPopupMenu();
+        jmi_LeerChats = new javax.swing.JMenuItem();
+        jd_VerConversacion = new javax.swing.JDialog();
+        jLabel18 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        texto_Conversacion = new javax.swing.JTextArea();
         jLabel13 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         arbol_Receptores = new javax.swing.JTree();
@@ -77,11 +94,11 @@ public class PrincipalExamen extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        jm_Opciones = new javax.swing.JMenu();
         jmi_IngresarSesion = new javax.swing.JMenuItem();
         jmi_VerUsuarios = new javax.swing.JMenuItem();
         jmi_CrearUsuario = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jmi_Solicitudes = new javax.swing.JMenuItem();
 
         jd_CrearUsuario.setTitle("Crear Usuario");
 
@@ -371,6 +388,100 @@ public class PrincipalExamen extends javax.swing.JFrame {
                 .addContainerGap(100, Short.MAX_VALUE))
         );
 
+        jmi_EnviarMensaje.setText("jMenuItem2");
+        jmi_EnviarMensaje.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_EnviarMensajeActionPerformed(evt);
+            }
+        });
+        popup_ListaAmigos.add(jmi_EnviarMensaje);
+
+        jd_EnviarMensaje.setTitle("Enviar Mensaje");
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel17.setText("Enviar Mensaje");
+
+        text_Contenido.setColumns(20);
+        text_Contenido.setRows(5);
+        jScrollPane5.setViewportView(text_Contenido);
+
+        jb_Enviar.setText("Enviar");
+        jb_Enviar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_EnviarMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_EnviarMensajeLayout = new javax.swing.GroupLayout(jd_EnviarMensaje.getContentPane());
+        jd_EnviarMensaje.getContentPane().setLayout(jd_EnviarMensajeLayout);
+        jd_EnviarMensajeLayout.setHorizontalGroup(
+            jd_EnviarMensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_EnviarMensajeLayout.createSequentialGroup()
+                .addGroup(jd_EnviarMensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_EnviarMensajeLayout.createSequentialGroup()
+                        .addGap(297, 297, 297)
+                        .addComponent(jLabel17))
+                    .addGroup(jd_EnviarMensajeLayout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 669, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_EnviarMensajeLayout.createSequentialGroup()
+                        .addGap(297, 297, 297)
+                        .addComponent(jb_Enviar, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(72, Short.MAX_VALUE))
+        );
+        jd_EnviarMensajeLayout.setVerticalGroup(
+            jd_EnviarMensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_EnviarMensajeLayout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(jLabel17)
+                .addGap(30, 30, 30)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(jb_Enviar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(45, Short.MAX_VALUE))
+        );
+
+        jmi_LeerChats.setText("Leer todo el chat");
+        jmi_LeerChats.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jmi_LeerChatsMouseClicked(evt);
+            }
+        });
+        popup_Arbol.add(jmi_LeerChats);
+
+        jd_VerConversacion.setTitle("Ver Conversacion");
+
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel18.setText("Ver Conversacion");
+
+        texto_Conversacion.setColumns(20);
+        texto_Conversacion.setRows(5);
+        jScrollPane6.setViewportView(texto_Conversacion);
+
+        javax.swing.GroupLayout jd_VerConversacionLayout = new javax.swing.GroupLayout(jd_VerConversacion.getContentPane());
+        jd_VerConversacion.getContentPane().setLayout(jd_VerConversacionLayout);
+        jd_VerConversacionLayout.setHorizontalGroup(
+            jd_VerConversacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_VerConversacionLayout.createSequentialGroup()
+                .addGroup(jd_VerConversacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_VerConversacionLayout.createSequentialGroup()
+                        .addGap(299, 299, 299)
+                        .addComponent(jLabel18))
+                    .addGroup(jd_VerConversacionLayout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 733, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(65, Short.MAX_VALUE))
+        );
+        jd_VerConversacionLayout.setVerticalGroup(
+            jd_VerConversacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_VerConversacionLayout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(jLabel18)
+                .addGap(33, 33, 33)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(104, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -378,6 +489,11 @@ public class PrincipalExamen extends javax.swing.JFrame {
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Receptores");
         arbol_Receptores.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        arbol_Receptores.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                arbol_ReceptoresMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(arbol_Receptores);
 
         lista_Amigos.setModel(new DefaultListModel());
@@ -389,21 +505,21 @@ public class PrincipalExamen extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel15.setText("Arbol Receptores");
 
-        jMenu1.setText("Opciones");
+        jm_Opciones.setText("Opciones");
 
         jmi_IngresarSesion.setText("Ingresar Sesion");
-        jMenu1.add(jmi_IngresarSesion);
+        jm_Opciones.add(jmi_IngresarSesion);
 
         jmi_VerUsuarios.setText("Visualizar Usuarios");
-        jMenu1.add(jmi_VerUsuarios);
+        jm_Opciones.add(jmi_VerUsuarios);
 
         jmi_CrearUsuario.setText("Crear Usuario");
-        jMenu1.add(jmi_CrearUsuario);
+        jm_Opciones.add(jmi_CrearUsuario);
 
-        jMenuItem1.setText("Ver solicitudes");
-        jMenu1.add(jMenuItem1);
+        jmi_Solicitudes.setText("Ver solicitudes");
+        jm_Opciones.add(jmi_Solicitudes);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(jm_Opciones);
 
         setJMenuBar(jMenuBar1);
 
@@ -446,209 +562,370 @@ public class PrincipalExamen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jb_CrearUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_CrearUsuarioMouseClicked
-        if(jt_Nombre.getText().isEmpty() || jt_Apellido.getText().isEmpty()
+        if (jt_Nombre.getText().isEmpty() || jt_Apellido.getText().isEmpty()
                 || jt_NumTelefono.getText().isEmpty() || jt_Username.getText().isEmpty()
-                || jp_Pass.getText().isEmpty() || jp_PassConfirm.getText().isEmpty()){
+                || jp_Pass.getText().isEmpty() || jp_PassConfirm.getText().isEmpty()) {
             JOptionPane.showMessageDialog(jd_CrearUsuario, "No puede dejar las casillas vacias!");
-        }else{
-            
+        } else {
+
             String pass = jp_Pass.getText();
             String cPass = jp_PassConfirm.getText();
-            
-            if(pass.equals(cPass)){
-                
+
+            if (pass.equals(cPass)) {
+
                 Usuario u = new Usuario(
                         jt_Username.getText(),
                         pass,
-                        (int)js_CalidadWifi.getValue(),
+                        (int) js_CalidadWifi.getValue(),
                         jt_Nombre.getText(),
                         jt_Apellido.getText(),
                         jt_NumTelefono.getText()
                 );
-                
+
                 admin.cargarArchivo();
-                
+
                 admin.getUsuarios().add(u);
-                
+
                 admin.escribirArchivo();
-                
+
                 JOptionPane.showMessageDialog(jd_CrearUsuario, "El usuario se creo correctamente");
-                
-            }else{
+
+            } else {
                 JOptionPane.showMessageDialog(jd_CrearUsuario, "Los Passwords son distintos!");
             }
-            
-            
+
         }
     }//GEN-LAST:event_jb_CrearUsuarioMouseClicked
 
     private void jb_LlenarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_LlenarMouseClicked
         DefaultTableModel modelo = (DefaultTableModel) tabla_Usuarios.getModel();
         limpiarUsuarios();
-        
+
         admin.cargarArchivo();
-        
+
         for (Usuario u : admin.getUsuarios()) {
-            
-            Object [] newRow = {
+
+            Object[] newRow = {
                 u.getUsuario(),
                 u.getApellido(),
                 u.getNumTelefono()
             };
-            
+
             modelo.addRow(newRow);
-            
+
         }
-        
+
         tabla_Usuarios.setModel(modelo);
-        
+
     }//GEN-LAST:event_jb_LlenarMouseClicked
 
     private void jb_EliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_EliminarMouseClicked
         DefaultTableModel modelo = (DefaultTableModel) tabla_Usuarios.getModel();
         int index = tabla_Usuarios.getSelectedRow();
-        
-        if(index >= 0){
-            
+
+        if (index >= 0) {
+
             admin.cargarArchivo();
             admin.getUsuarios().remove(index);
             admin.escribirArchivo();
-            
+
             modelo.removeRow(index);
-            
+
             JOptionPane.showMessageDialog(jd_VerUsuarios, "Se elimino el usuario correctamente");
-            
-        }else{
+
+        } else {
             JOptionPane.showMessageDialog(jd_VerUsuarios, "No hay un usuario seleccionado!");
         }
-        
+
     }//GEN-LAST:event_jb_EliminarMouseClicked
 
     private void jb_IngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_IngresarMouseClicked
-        if(jt_InUser.getText().isEmpty() || jp_PassIn.getText().isEmpty()){
+        if (jt_InUser.getText().isEmpty() || jp_PassIn.getText().isEmpty()) {
             JOptionPane.showMessageDialog(jd_LogIn, "Las casillas estan vacias!");
-        }else{
-            
+        } else {
+
             String user = jt_InUser.getText();
             String pass = jp_PassIn.getText();
-            
+
             admin.cargarArchivo();
             boolean logIn = false;
-            
+
             userLoged = new Usuario();
             for (Usuario u : admin.getUsuarios()) {
-                
-                if(u.getUsuario().equals(user) && u.getPassword().equals(pass)){
+
+                if (u.getUsuario().equals(user) && u.getPassword().equals(pass)) {
                     logIn = true;
                     userLoged = u;
                 }
             }
-            
-            if(logIn){
-                
-                
+
+            if (logIn) {
+
                 jt_InUser.setText("");
                 jp_PassIn.setText("");
-                
-                JOptionPane.showMessageDialog(jd_LogIn, "Bienvenido de nuevo "+userLoged.getUsuario());
+
+                cargarAmigos();
+                cargarArbol();
+
+                JOptionPane.showMessageDialog(jd_LogIn, "Bienvenido de nuevo " + userLoged.getUsuario());
                 jd_LogIn.setVisible(false);
-                
-            }else{
+
+            } else {
                 JOptionPane.showMessageDialog(jd_LogIn, "El usuario no es correcto");
             }
-            
-            
-            
+
         }
     }//GEN-LAST:event_jb_IngresarMouseClicked
 
     private void lista_SolicitudesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lista_SolicitudesMouseClicked
-       DefaultListModel modelo = (DefaultListModel) lista_Solicitudes.getModel();
-       DefaultListModel modelo2 = (DefaultListModel) lista_Amigos.getModel();
-       int index = lista_Solicitudes.getSelectedIndex();
-       
-       if(index >= 0){
-           Solicitud s = (Solicitud) modelo.getElementAt(index);
-           
-           int i = JOptionPane.showConfirmDialog(jd_VerSolicitudes, ""+s.getSolicitud());
-           
-           if(i == JOptionPane.OK_OPTION){
-               
-               Usuario u = s.getUsuario();
-               
-               userLoged.getAmigos().add(u);
-               
-               modelo.remove(index);
-               modelo2.addElement(u);
-               
-               userLoged.getSolicitudes().remove(s);
-               
-               lista_Solicitudes.setModel(modelo);
-               lista_Amigos.setModel(modelo2);
-               
-               JOptionPane.showMessageDialog(jd_VerSolicitudes, "La solicitud de amistad ha sido aceptada");
-               
-           }else{
-               JOptionPane.showMessageDialog(jd_VerSolicitudes, "No se acepto la solicitud de amistad");
-           }
-           
-       }else{
-           JOptionPane.showMessageDialog(jd_VerSolicitudes, "No tiene solicitudes en la lista");
-       }
-       
+        DefaultListModel modelo = (DefaultListModel) lista_Solicitudes.getModel();
+        DefaultListModel modelo2 = (DefaultListModel) lista_Amigos.getModel();
+        int index = lista_Solicitudes.getSelectedIndex();
+
+        if (index >= 0) {
+            Solicitud s = (Solicitud) modelo.getElementAt(index);
+
+            int i = JOptionPane.showConfirmDialog(jd_VerSolicitudes, "" + s.getSolicitud());
+
+            if (i == JOptionPane.OK_OPTION) {
+
+                Usuario u = s.getUsuario();
+
+                userLoged.getAmigos().add(u);
+
+                modelo.remove(index);
+                modelo2.addElement(u);
+
+                admin.cargarArchivo();
+
+                for (Usuario us : admin.getUsuarios()) {
+
+                    if (us.getUsuario().equals(u.getUsuario())) {
+                        us.getAmigos().add(userLoged);
+                    }
+                }
+
+                admin.escribirArchivo();
+
+                userLoged.getSolicitudes().remove(s);
+
+                lista_Solicitudes.setModel(modelo);
+                lista_Amigos.setModel(modelo2);
+
+                JOptionPane.showMessageDialog(jd_VerSolicitudes, "La solicitud de amistad ha sido aceptada");
+
+            } else {
+                JOptionPane.showMessageDialog(jd_VerSolicitudes, "No se acepto la solicitud de amistad");
+                userLoged.getSolicitudes().remove(s);
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(jd_VerSolicitudes, "No tiene solicitudes en la lista");
+        }
+
     }//GEN-LAST:event_lista_SolicitudesMouseClicked
 
     private void jb_EnviarSolicitudMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_EnviarSolicitudMouseClicked
         DefaultTableModel modelo = (DefaultTableModel) tabla_Usuarios.getModel();
         int index = tabla_Usuarios.getSelectedRow();
-        
-        if(index >= 0){
-            
+
+        if (index >= 0) {
+
             Solicitud s = new Solicitud(
-                    "El usuario "+userLoged.getUsuario()+" te ha enviado una solicitud de amistad",
+                    "El usuario " + userLoged.getUsuario() + " te ha enviado una solicitud de amistad",
                     userLoged
             );
-            
+
             admin.cargarArchivo();
-            
+
             admin.getUsuarios().get(index).getSolicitudes().add(s);
-            
+
             admin.escribirArchivo();
-            
+
             JOptionPane.showMessageDialog(jd_VerUsuarios, "Se envio la solicitud de amistad correctament");
-            
-        }else{
+
+        } else {
             JOptionPane.showMessageDialog(jd_VerUsuarios, "No hay un usuario seleccionado!");
         }
     }//GEN-LAST:event_jb_EnviarSolicitudMouseClicked
-    
-    public void limpiarUsuarios(){
-         tabla_Usuarios.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
 
-            },
-            new String [] {
-                "Username", "Apellido", "NumTelefono"
+    private void jmi_EnviarMensajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_EnviarMensajeActionPerformed
+
+    }//GEN-LAST:event_jmi_EnviarMensajeActionPerformed
+
+    private void jb_EnviarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_EnviarMouseClicked
+        DefaultListModel modelo = (DefaultListModel) lista_Amigos.getModel();
+        DefaultTreeModel modelt = (DefaultTreeModel) arbol_Receptores.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelt.getRoot();
+        int index = lista_Amigos.getSelectedIndex();
+
+        if (text_Contenido.getText().isEmpty()) {
+
+            JOptionPane.showMessageDialog(jd_EnviarMensaje, "No ha escrito texto en el area");
+
+        } else {
+            SimpleDateFormat form = new SimpleDateFormat("dd/MM/yyyy");
+            Date fecha = new Date();
+
+            String hora = "";
+            hora += fecha.getHours() + ":" + fecha.getMinutes();
+
+            String fe = form.format(fecha);
+            String texto = text_Contenido.getText();
+            text_Contenido.setText("");
+
+            Mensaje m = new Mensaje(
+                    texto,
+                    hora,
+                    fe,
+                    false
+            );
+
+            Usuario us = (Usuario) modelo.getElementAt(index);
+
+            admin.cargarArchivo();
+
+            Privado p = new Privado(
+                    us
+            );
+
+            p.getMensajes().add(m);
+
+            for (Usuario u : admin.getUsuarios()) {
+
+                if (u.getUsuario().equals(us.getUsuario())) {
+                    u.getChats().add(p);
+                }
             }
+
+            admin.escribirArchivo();
+
+            userLoged.getChats().add(p);
+
+            userLoged.getAmigos().remove(index);
+
+            DefaultMutableTreeNode chat = new DefaultMutableTreeNode(p);
+
+            raiz.add(chat);
+
+            modelt.reload();
+
+            modelo.removeElementAt(index);
+
+            JOptionPane.showMessageDialog(this, "El mensaje se ha enviado correctamente");
+
+        }
+    }//GEN-LAST:event_jb_EnviarMouseClicked
+
+    private void arbol_ReceptoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arbol_ReceptoresMouseClicked
+        DefaultTreeModel modelt = (DefaultTreeModel) arbol_Receptores.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelt.getRoot();
+
+        if (evt.isMetaDown()) {
+
+            if (raiz.getChildCount() > 0) {
+                int row = arbol_Receptores.getClosestRowForLocation(evt.getX(), evt.getY());
+
+                arbol_Receptores.setSelectionRow(row);
+
+                Object v1 = arbol_Receptores.getSelectionPath().getLastPathComponent();
+
+                chatSeleccionado = (DefaultMutableTreeNode) v1;
+
+                if (chatSeleccionado.getUserObject() instanceof Chats) {
+                   
+
+                    chatSelected = (Chats) chatSeleccionado.getUserObject();
+                    popup_Arbol.show(arbol_Receptores, evt.getX(), evt.getY());
+                }
+            }
+        }
+    }//GEN-LAST:event_arbol_ReceptoresMouseClicked
+
+    private void jmi_LeerChatsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmi_LeerChatsMouseClicked
+        
+        if(chatSelected instanceof Privado){
+            
+            Privado p = (Privado)chatSelected;
+            
+            texto_Conversacion.setText("");
+            
+            for (Mensaje m : p.getMensajes()) {
+                texto_Conversacion.append(m.getHora()+""+m.getFecha()+""+m.getContenido());
+                texto_Conversacion.append("\n");
+            }
+            
+            for (Mensaje m : p.getMensajes()) {
+                m.setLeido(true);
+            }
+            
+        }else{
+            
+            texto_Conversacion.setText("");
+            
+            Grupo g = (Grupo)chatSelected;
+            
+            for (Mensaje m : g.getMensajes()) {
+                texto_Conversacion.append(m.getFecha()+""+m.getFecha()+""+m.getContenido());
+                texto_Conversacion.append("\n");
+            }
+            
+            for (Mensaje m : g.getMensajes()) {
+                m.setLeido(true);
+            }
+        }
+    }//GEN-LAST:event_jmi_LeerChatsMouseClicked
+
+    public void cargarAmigos() {
+        DefaultListModel modelo = (DefaultListModel) lista_Amigos.getModel();
+
+        for (Usuario amigo : userLoged.getAmigos()) {
+            modelo.addElement(amigo);
+        }
+
+        lista_Amigos.setModel(modelo);
+    }
+
+    public void cargarArbol() {
+        DefaultTreeModel modelt = (DefaultTreeModel) arbol_Receptores.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelt.getRoot();
+
+        for (Chats chat : userLoged.getChats()) {
+
+            DefaultMutableTreeNode nodo = new DefaultMutableTreeNode(chat);
+
+            raiz.add(nodo);
+        }
+
+        modelt.reload();
+    }
+
+    public void limpiarUsuarios() {
+        tabla_Usuarios.setModel(new javax.swing.table.DefaultTableModel(
+                new Object[][]{},
+                new String[]{
+                    "Username", "Apellido", "NumTelefono"
+                }
         ) {
-            Class[] types = new Class [] {
+            Class[] types = new Class[]{
                 java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
-            boolean[] canEdit = new boolean [] {
+            boolean[] canEdit = new boolean[]{
                 false, true, true
             };
 
             @Override
             public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
+                return types[columnIndex];
             }
 
             @Override
             public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+                return canEdit[columnIndex];
             }
-        }); 
+        });
     }
+
     /**
      * @param args the command line arguments
      */
@@ -694,6 +971,8 @@ public class PrincipalExamen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -702,24 +981,31 @@ public class PrincipalExamen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JButton jb_CrearUsuario;
     private javax.swing.JButton jb_Eliminar;
+    private javax.swing.JButton jb_Enviar;
     private javax.swing.JButton jb_EnviarSolicitud;
     private javax.swing.JButton jb_Ingresar;
     private javax.swing.JButton jb_Llenar;
     private javax.swing.JDialog jd_CrearUsuario;
+    private javax.swing.JDialog jd_EnviarMensaje;
     private javax.swing.JDialog jd_LogIn;
+    private javax.swing.JDialog jd_VerConversacion;
     private javax.swing.JDialog jd_VerSolicitudes;
     private javax.swing.JDialog jd_VerUsuarios;
+    private javax.swing.JMenu jm_Opciones;
     private javax.swing.JMenuItem jmi_CrearUsuario;
+    private javax.swing.JMenuItem jmi_EnviarMensaje;
     private javax.swing.JMenuItem jmi_IngresarSesion;
+    private javax.swing.JMenuItem jmi_LeerChats;
+    private javax.swing.JMenuItem jmi_Solicitudes;
     private javax.swing.JMenuItem jmi_VerUsuarios;
     private javax.swing.JPasswordField jp_Pass;
     private javax.swing.JPasswordField jp_PassConfirm;
@@ -732,10 +1018,17 @@ public class PrincipalExamen extends javax.swing.JFrame {
     private javax.swing.JTextField jt_Username;
     private javax.swing.JList<String> lista_Amigos;
     private javax.swing.JList<String> lista_Solicitudes;
+    private javax.swing.JPopupMenu popup_Arbol;
+    private javax.swing.JPopupMenu popup_ListaAmigos;
     private javax.swing.JTable tabla_Usuarios;
+    private javax.swing.JTextArea text_Contenido;
+    private javax.swing.JTextArea texto_Conversacion;
     // End of variables declaration//GEN-END:variables
 
     AdminUsuarios admin;
     Usuario userLoged;
     
+    DefaultMutableTreeNode chatSeleccionado;
+    Chats chatSelected;
+
 }

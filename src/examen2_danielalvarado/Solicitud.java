@@ -5,7 +5,9 @@
  */
 package examen2_danielalvarado;
 
-public class Solicitud {
+import java.io.Serializable;
+
+public class Solicitud implements Serializable{
     
     private String solicitud;
     private Usuario usuario;
