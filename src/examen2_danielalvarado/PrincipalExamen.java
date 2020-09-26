@@ -83,12 +83,14 @@ public class PrincipalExamen extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         text_Contenido = new javax.swing.JTextArea();
         jb_Enviar = new javax.swing.JButton();
+        barra_Mensajes = new javax.swing.JProgressBar();
         popup_Arbol = new javax.swing.JPopupMenu();
         jmi_LeerChats = new javax.swing.JMenuItem();
         jd_VerConversacion = new javax.swing.JDialog();
         jLabel18 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
         texto_Conversacion = new javax.swing.JTextArea();
+        jb_MostrarConversacion = new javax.swing.JButton();
         jd_CrearGrupo = new javax.swing.JDialog();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
@@ -107,6 +109,11 @@ public class PrincipalExamen extends javax.swing.JFrame {
         jScrollPane10 = new javax.swing.JScrollPane();
         lista_Eliminar = new javax.swing.JList<>();
         jb_EliminarIntegrante = new javax.swing.JButton();
+        jd_EnviarGrupos = new javax.swing.JDialog();
+        jLabel23 = new javax.swing.JLabel();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        texto_Grupo = new javax.swing.JTextArea();
+        jb_EnviarGrupo = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         arbol_Receptores = new javax.swing.JTree();
@@ -124,6 +131,7 @@ public class PrincipalExamen extends javax.swing.JFrame {
         jmi_CrearUsuario = new javax.swing.JMenuItem();
         jmi_Solicitudes = new javax.swing.JMenuItem();
         jmi_CrearGrupo = new javax.swing.JMenuItem();
+        jmi_LogOut = new javax.swing.JMenuItem();
 
         jd_CrearUsuario.setTitle("Crear Usuario");
 
@@ -447,11 +455,13 @@ public class PrincipalExamen extends javax.swing.JFrame {
                         .addGap(297, 297, 297)
                         .addComponent(jLabel17))
                     .addGroup(jd_EnviarMensajeLayout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 669, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jd_EnviarMensajeLayout.createSequentialGroup()
                         .addGap(297, 297, 297)
-                        .addComponent(jb_Enviar, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jb_Enviar, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_EnviarMensajeLayout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addGroup(jd_EnviarMensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 669, Short.MAX_VALUE)
+                            .addComponent(barra_Mensajes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(72, Short.MAX_VALUE))
         );
         jd_EnviarMensajeLayout.setVerticalGroup(
@@ -460,16 +470,18 @@ public class PrincipalExamen extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addComponent(jLabel17)
                 .addGap(30, 30, 30)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(barra_Mensajes, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jb_Enviar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(45, Short.MAX_VALUE))
         );
 
         jmi_LeerChats.setText("Leer todo el chat");
-        jmi_LeerChats.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jmi_LeerChatsMouseClicked(evt);
+        jmi_LeerChats.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_LeerChatsActionPerformed(evt);
             }
         });
         popup_Arbol.add(jmi_LeerChats);
@@ -483,6 +495,13 @@ public class PrincipalExamen extends javax.swing.JFrame {
         texto_Conversacion.setRows(5);
         jScrollPane6.setViewportView(texto_Conversacion);
 
+        jb_MostrarConversacion.setText("Mostrar Conversacion");
+        jb_MostrarConversacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_MostrarConversacionMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jd_VerConversacionLayout = new javax.swing.GroupLayout(jd_VerConversacion.getContentPane());
         jd_VerConversacion.getContentPane().setLayout(jd_VerConversacionLayout);
         jd_VerConversacionLayout.setHorizontalGroup(
@@ -494,7 +513,10 @@ public class PrincipalExamen extends javax.swing.JFrame {
                         .addComponent(jLabel18))
                     .addGroup(jd_VerConversacionLayout.createSequentialGroup()
                         .addGap(42, 42, 42)
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 733, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 733, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_VerConversacionLayout.createSequentialGroup()
+                        .addGap(313, 313, 313)
+                        .addComponent(jb_MostrarConversacion, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(65, Short.MAX_VALUE))
         );
         jd_VerConversacionLayout.setVerticalGroup(
@@ -503,8 +525,10 @@ public class PrincipalExamen extends javax.swing.JFrame {
                 .addGap(45, 45, 45)
                 .addComponent(jLabel18)
                 .addGap(33, 33, 33)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(104, Short.MAX_VALUE))
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(jb_MostrarConversacion, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         jd_CrearGrupo.setTitle("Crea un Grupo");
@@ -577,9 +601,19 @@ public class PrincipalExamen extends javax.swing.JFrame {
         );
 
         jmi_EliminarMiembro.setText("Eliminar Miembro");
+        jmi_EliminarMiembro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_EliminarMiembroActionPerformed(evt);
+            }
+        });
         popup_Grupos.add(jmi_EliminarMiembro);
 
         jmi_MandarMensaje.setText("Mandar un Mensaje");
+        jmi_MandarMensaje.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_MandarMensajeActionPerformed(evt);
+            }
+        });
         popup_Grupos.add(jmi_MandarMensaje);
 
         jd_EliminarIntegrante.setTitle("Eliminar Integrante");
@@ -627,6 +661,51 @@ public class PrincipalExamen extends javax.swing.JFrame {
                 .addContainerGap(35, Short.MAX_VALUE))
         );
 
+        jd_EnviarGrupos.setTitle("Enviar Mensaje");
+
+        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel23.setText("Enviar a Grupo Seleccionado");
+
+        texto_Grupo.setColumns(20);
+        texto_Grupo.setRows(5);
+        jScrollPane11.setViewportView(texto_Grupo);
+
+        jb_EnviarGrupo.setText("Enviar a grupo");
+        jb_EnviarGrupo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_EnviarGrupoMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_EnviarGruposLayout = new javax.swing.GroupLayout(jd_EnviarGrupos.getContentPane());
+        jd_EnviarGrupos.getContentPane().setLayout(jd_EnviarGruposLayout);
+        jd_EnviarGruposLayout.setHorizontalGroup(
+            jd_EnviarGruposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_EnviarGruposLayout.createSequentialGroup()
+                .addGroup(jd_EnviarGruposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_EnviarGruposLayout.createSequentialGroup()
+                        .addGap(269, 269, 269)
+                        .addComponent(jLabel23))
+                    .addGroup(jd_EnviarGruposLayout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 752, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_EnviarGruposLayout.createSequentialGroup()
+                        .addGap(340, 340, 340)
+                        .addComponent(jb_EnviarGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(74, Short.MAX_VALUE))
+        );
+        jd_EnviarGruposLayout.setVerticalGroup(
+            jd_EnviarGruposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_EnviarGruposLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(jLabel23)
+                .addGap(30, 30, 30)
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(jb_EnviarGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(44, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -642,6 +721,11 @@ public class PrincipalExamen extends javax.swing.JFrame {
         jScrollPane2.setViewportView(arbol_Receptores);
 
         lista_Amigos.setModel(new DefaultListModel());
+        lista_Amigos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lista_AmigosMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(lista_Amigos);
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -654,6 +738,11 @@ public class PrincipalExamen extends javax.swing.JFrame {
         jLabel21.setText("Lista de Grupos");
 
         lista_Grupos.setModel(new DefaultListModel());
+        lista_Grupos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lista_GruposMouseClicked(evt);
+            }
+        });
         jScrollPane9.setViewportView(lista_Grupos);
 
         jm_Opciones.setText("Opciones");
@@ -672,9 +761,9 @@ public class PrincipalExamen extends javax.swing.JFrame {
         jm_Opciones.add(jmi_IngresarSesion);
 
         jmi_VerUsuarios.setText("Visualizar Usuarios");
-        jmi_VerUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jmi_VerUsuariosMouseClicked(evt);
+        jmi_VerUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_VerUsuariosActionPerformed(evt);
             }
         });
         jm_Opciones.add(jmi_VerUsuarios);
@@ -688,9 +777,9 @@ public class PrincipalExamen extends javax.swing.JFrame {
         jm_Opciones.add(jmi_CrearUsuario);
 
         jmi_Solicitudes.setText("Ver solicitudes");
-        jmi_Solicitudes.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jmi_SolicitudesMouseClicked(evt);
+        jmi_Solicitudes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_SolicitudesActionPerformed(evt);
             }
         });
         jm_Opciones.add(jmi_Solicitudes);
@@ -702,6 +791,14 @@ public class PrincipalExamen extends javax.swing.JFrame {
             }
         });
         jm_Opciones.add(jmi_CrearGrupo);
+
+        jmi_LogOut.setText("LogOut");
+        jmi_LogOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_LogOutActionPerformed(evt);
+            }
+        });
+        jm_Opciones.add(jmi_LogOut);
 
         jMenuBar1.add(jm_Opciones);
 
@@ -785,6 +882,14 @@ public class PrincipalExamen extends javax.swing.JFrame {
                 admin.getUsuarios().add(u);
 
                 admin.escribirArchivo();
+
+                jt_Username.setText("");
+                jp_Pass.setText("");
+                jp_PassConfirm.setText("");
+                js_CalidadWifi.setValue(3);
+                jt_Nombre.setText("");
+                jt_Apellido.setText("");
+                jt_NumTelefono.setText("");
 
                 JOptionPane.showMessageDialog(jd_CrearUsuario, "El usuario se creo correctamente");
 
@@ -971,7 +1076,6 @@ public class PrincipalExamen extends javax.swing.JFrame {
 
             String fe = form.format(fecha);
             String texto = text_Contenido.getText();
-            text_Contenido.setText("");
 
             Mensaje m = new Mensaje(
                     texto,
@@ -1005,13 +1109,16 @@ public class PrincipalExamen extends javax.swing.JFrame {
 
             DefaultMutableTreeNode chat = new DefaultMutableTreeNode(p);
 
+            hm = new HiloMensaje(text_Contenido, barra_Mensajes, true, true);
+            hm.setTime(userLoged.enviar(us.getCalidadWifi()));
+
+            hm.start();
+
+            text_Contenido.setText("");
+
             raiz.add(chat);
 
             modelt.reload();
-
-            modelo.removeElementAt(index);
-
-            JOptionPane.showMessageDialog(this, "El mensaje se ha enviado correctamente");
 
         }
     }//GEN-LAST:event_jb_EnviarMouseClicked
@@ -1039,40 +1146,6 @@ public class PrincipalExamen extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_arbol_ReceptoresMouseClicked
-
-    private void jmi_LeerChatsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmi_LeerChatsMouseClicked
-
-        if (chatSelected instanceof Privado) {
-
-            Privado p = (Privado) chatSelected;
-
-            texto_Conversacion.setText("");
-
-            for (Mensaje m : p.getMensajes()) {
-                texto_Conversacion.append(m.getHora() + "" + m.getFecha() + "" + m.getContenido());
-                texto_Conversacion.append("\n");
-            }
-
-            for (Mensaje m : p.getMensajes()) {
-                m.setLeido(true);
-            }
-
-        } else {
-
-            texto_Conversacion.setText("");
-
-            Grupo g = (Grupo) chatSelected;
-
-            for (Mensaje m : g.getMensajes()) {
-                texto_Conversacion.append(m.getFecha() + "" + m.getFecha() + "" + m.getContenido());
-                texto_Conversacion.append("\n");
-            }
-
-            for (Mensaje m : g.getMensajes()) {
-                m.setLeido(true);
-            }
-        }
-    }//GEN-LAST:event_jmi_LeerChatsMouseClicked
 
     private void jb_CrearGrupoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_CrearGrupoMouseClicked
         DefaultListModel model = (DefaultListModel) lista_am.getModel();
@@ -1152,15 +1225,6 @@ public class PrincipalExamen extends javax.swing.JFrame {
         jd_LogIn.setVisible(true);
     }//GEN-LAST:event_jmi_IngresarSesionActionPerformed
 
-    private void jmi_VerUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmi_VerUsuariosMouseClicked
-
-        jd_VerUsuarios.setModal(true);
-        jd_VerUsuarios.pack();
-        jd_VerUsuarios.setLocationRelativeTo(this);
-        jd_VerUsuarios.setVisible(true);
-
-    }//GEN-LAST:event_jmi_VerUsuariosMouseClicked
-
     private void jmi_CrearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_CrearUsuarioActionPerformed
         jd_CrearUsuario.setModal(true);
         jd_CrearUsuario.pack();
@@ -1168,7 +1232,64 @@ public class PrincipalExamen extends javax.swing.JFrame {
         jd_CrearUsuario.setVisible(true);
     }//GEN-LAST:event_jmi_CrearUsuarioActionPerformed
 
-    private void jmi_SolicitudesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmi_SolicitudesMouseClicked
+    private void jmi_CrearGrupoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_CrearGrupoActionPerformed
+        DefaultListModel modelo = (DefaultListModel) lista_am.getModel();
+
+        modelo.clear();
+
+        for (Usuario amigo : userLoged.getAmigos()) {
+            modelo.addElement(amigo);
+        }
+
+        lista_am.setModel(modelo);
+
+        jd_CrearGrupo.setModal(true);
+        jd_CrearGrupo.pack();
+        jd_CrearGrupo.setLocationRelativeTo(this);
+        jd_CrearGrupo.setVisible(true);
+    }//GEN-LAST:event_jmi_CrearGrupoActionPerformed
+
+    private void jb_EliminarIntegranteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_EliminarIntegranteMouseClicked
+        DefaultListModel modelo = (DefaultListModel) lista_Eliminar.getModel();
+        DefaultListModel modelo2 = (DefaultListModel) lista_Grupos.getModel();
+        int index = lista_Eliminar.getSelectedIndex();
+        int in = lista_Grupos.getSelectedIndex();
+
+        if (index >= 0) {
+            Grupo g = (Grupo) modelo2.getElementAt(in);
+            Usuario u = (Usuario) modelo.getElementAt(index);
+
+        } else {
+            JOptionPane.showMessageDialog(this, "No hay nadie seleccionado en la lista!");
+        }
+
+
+    }//GEN-LAST:event_jb_EliminarIntegranteMouseClicked
+
+    private void lista_AmigosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lista_AmigosMouseClicked
+        DefaultListModel modelo = (DefaultListModel) lista_Amigos.getModel();
+        int index = lista_Amigos.getSelectedIndex();
+
+        if (index >= 0) {
+
+            jd_EnviarMensaje.setModal(true);
+            jd_EnviarMensaje.pack();
+            jd_EnviarMensaje.setLocationRelativeTo(this);
+            jd_EnviarMensaje.setVisible(true);
+
+        } else {
+            JOptionPane.showMessageDialog(this, "No hay un amigo seleccionado");
+        }
+    }//GEN-LAST:event_lista_AmigosMouseClicked
+
+    private void jmi_VerUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_VerUsuariosActionPerformed
+        jd_VerUsuarios.setModal(true);
+        jd_VerUsuarios.pack();
+        jd_VerUsuarios.setLocationRelativeTo(this);
+        jd_VerUsuarios.setVisible(true);
+    }//GEN-LAST:event_jmi_VerUsuariosActionPerformed
+
+    private void jmi_SolicitudesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_SolicitudesActionPerformed
         DefaultListModel modelo = (DefaultListModel) lista_Solicitudes.getModel();
 
         for (Solicitud s : userLoged.getSolicitudes()) {
@@ -1182,45 +1303,150 @@ public class PrincipalExamen extends javax.swing.JFrame {
         jd_VerSolicitudes.setLocationRelativeTo(this);
         jd_VerSolicitudes.setVisible(true);
 
-    }//GEN-LAST:event_jmi_SolicitudesMouseClicked
+    }//GEN-LAST:event_jmi_SolicitudesActionPerformed
 
-    private void jmi_CrearGrupoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_CrearGrupoActionPerformed
-        DefaultListModel modelo = (DefaultListModel) lista_am.getModel();
-        
-        modelo.clear();
-        
-        for (Usuario amigo : userLoged.getAmigos()) {
-            modelo.addElement(amigo);
+    private void jmi_LeerChatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_LeerChatsActionPerformed
+        jd_VerConversacion.setModal(true);
+        jd_VerConversacion.pack();
+        jd_VerConversacion.setLocationRelativeTo(this);
+        jd_VerConversacion.setVisible(true);
+    }//GEN-LAST:event_jmi_LeerChatsActionPerformed
+
+    private void jb_MostrarConversacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_MostrarConversacionMouseClicked
+        if (chatSelected instanceof Privado) {
+
+            Privado p = (Privado) chatSelected;
+
+            texto_Conversacion.setText("");
+
+            for (Mensaje m : p.getMensajes()) {
+                texto_Conversacion.append(m.getHora() + "" + m.getFecha() + "" + m.getContenido());
+                texto_Conversacion.append("\n");
+            }
+
+            for (Mensaje m : p.getMensajes()) {
+                m.setLeido(true);
+            }
+
+        } else {
+
+            texto_Conversacion.setText("");
+
+            Grupo g = (Grupo) chatSelected;
+
+            for (Mensaje m : g.getMensajes()) {
+                texto_Conversacion.append(m.getFecha() + "" + m.getFecha() + "" + m.getContenido());
+                texto_Conversacion.append("\n");
+            }
+
+            for (Mensaje m : g.getMensajes()) {
+                m.setLeido(true);
+            }
         }
-        
-        lista_am.setModel(modelo);
-        
-        jd_CrearGrupo.setModal(true);
-        jd_CrearGrupo.pack();
-        jd_CrearGrupo.setLocationRelativeTo(this);
-        jd_CrearGrupo.setVisible(true);
-    }//GEN-LAST:event_jmi_CrearGrupoActionPerformed
+    }//GEN-LAST:event_jb_MostrarConversacionMouseClicked
 
-    private void jb_EliminarIntegranteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_EliminarIntegranteMouseClicked
-         DefaultListModel modelo = (DefaultListModel) lista_Eliminar.getModel();
-         DefaultListModel modelo2 = (DefaultListModel) lista_Grupos.getModel();
-         int index = lista_Eliminar.getSelectedIndex();
-         int in = lista_Grupos.getSelectedIndex();
-                 
-         if(index >= 0){
-             Grupo g = (Grupo)modelo2.getElementAt(in);
-             Usuario u = (Usuario) modelo.getElementAt(index);
-             
-             
-             
-         }else{
-             JOptionPane.showMessageDialog(this, "No hay nadie seleccionado en la lista!");
-         }
-         
-         
-    }//GEN-LAST:event_jb_EliminarIntegranteMouseClicked
+    private void jb_EnviarGrupoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_EnviarGrupoMouseClicked
+        if (texto_Grupo.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(jd_EnviarGrupos, "No se puede enviar un texto vacio");
+        } else {
+            DefaultListModel modelo = (DefaultListModel) lista_Grupos.getModel();
+            int index = lista_Grupos.getSelectedIndex();
 
-    public void cargarAmigos() {
+            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+
+            String texto = texto_Grupo.getText() + " Enviado por:  " + userLoged.getUsuario();
+            Date fecha = new Date();
+
+            String f = formato.format(fecha);
+            String hora = fecha.getHours() + ":" + fecha.getMinutes();
+
+            Mensaje m = new Mensaje(
+                    texto,
+                    hora,
+                    f,
+                    false
+            );
+
+            Grupo g = (Grupo) modelo.getElementAt(index);
+
+            admin.cargarArchivo();
+
+            for (Usuario u : admin.getUsuarios()) {
+
+                for (Usuario miembro : g.getMiembros()) {
+
+                    if (u.getUsuario().equals(miembro.getUsuario())) {
+
+                        for (Chats chat : miembro.getChats()) {
+
+                            if (chat instanceof Grupo) {
+                                Grupo gg = (Grupo) chat;
+
+                                if (gg.getNombre().equals(g.getNombre()) || gg.getNombre().equals(g.getAdministrador().getUsuario())) {
+                                    gg.getMensajes().add(m);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            admin.escribirArchivo();
+
+            JOptionPane.showMessageDialog(this, "El mensaje ha sido enviado al grupo");
+
+        }
+    }//GEN-LAST:event_jb_EnviarGrupoMouseClicked
+
+    private void jmi_MandarMensajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_MandarMensajeActionPerformed
+        jd_EnviarGrupos.setModal(true);
+        jd_EnviarGrupos.pack();
+        jd_EnviarGrupos.setLocationRelativeTo(this);
+        jd_EnviarGrupos.setVisible(true);
+    }//GEN-LAST:event_jmi_MandarMensajeActionPerformed
+
+    private void lista_GruposMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lista_GruposMouseClicked
+        int index = lista_Grupos.getSelectedIndex();
+        if (evt.isMetaDown()) {
+            if (index >= 0) {
+
+                popup_Grupos.show(lista_Grupos, evt.getX(), evt.getY());
+            } else {
+                JOptionPane.showMessageDialog(this, "No hay elementos en la lista!");
+            }
+        }
+    
+    }//GEN-LAST:event_lista_GruposMouseClicked
+
+    private void jmi_EliminarMiembroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_EliminarMiembroActionPerformed
+       jd_EliminarIntegrante.setModal(true);
+       jd_EliminarIntegrante.pack();
+       jd_EliminarIntegrante.setLocationRelativeTo(this);
+       jd_EliminarIntegrante.setVisible(true);
+    }//GEN-LAST:event_jmi_EliminarMiembroActionPerformed
+
+    private void jmi_LogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_LogOutActionPerformed
+        DefaultTreeModel modelt = (DefaultTreeModel) arbol_Receptores.getModel();
+        DefaultListModel model = (DefaultListModel) lista_Amigos.getModel();
+        DefaultListModel model2 = (DefaultListModel) lista_Grupos.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelt.getRoot();
+        
+        model.clear();
+        model2.clear();
+        
+        raiz.removeAllChildren();
+        
+        modelt.reload();
+        
+        lista_Amigos.setModel(model);
+        lista_Grupos.setModel(model2);
+        
+        userLoged = new Usuario();
+        
+        JOptionPane.showMessageDialog(this, "Hasta Pronto Amigo Mio");
+    }//GEN-LAST:event_jmi_LogOutActionPerformed
+
+public void cargarAmigos() {
         DefaultListModel modelo = (DefaultListModel) lista_Amigos.getModel();
 
         for (Usuario amigo : userLoged.getAmigos()) {
@@ -1243,20 +1469,20 @@ public class PrincipalExamen extends javax.swing.JFrame {
 
         modelt.reload();
     }
-    
-    public void cargarGrupos(){
+
+    public void cargarGrupos() {
         DefaultListModel modelo = (DefaultListModel) lista_Grupos.getModel();
-        
+
         for (Chats chat : userLoged.getChats()) {
             Object o = chat;
-            
-            if(o instanceof Privado){
-                Privado p = (Privado)o;
-                
+
+            if (o instanceof Grupo) {
+                Grupo p = (Grupo) o;
+
                 modelo.addElement(p);
             }
         }
-        
+
         lista_Grupos.setModel(modelo);
     }
 
@@ -1268,19 +1494,30 @@ public class PrincipalExamen extends javax.swing.JFrame {
                 }
         ) {
             Class[] types = new Class[]{
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
+                java.lang.String
+
+.class  
+
+
+
+, java.lang.String.class  
+
+
+
+, java.lang.String.class
+
+};
             boolean[] canEdit = new boolean[]{
                 false, true, true
             };
 
             @Override
-            public Class getColumnClass(int columnIndex) {
+        public Class getColumnClass(int columnIndex) {
                 return types[columnIndex];
             }
 
             @Override
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
+        public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit[columnIndex];
             }
         });
@@ -1303,13 +1540,33 @@ public class PrincipalExamen extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PrincipalExamen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PrincipalExamen
+
+.class  
+
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PrincipalExamen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PrincipalExamen
+
+.class  
+
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PrincipalExamen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PrincipalExamen
+
+.class  
+
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PrincipalExamen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PrincipalExamen
+
+.class  
+
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -1323,6 +1580,7 @@ public class PrincipalExamen extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTree arbol_Receptores;
+    private javax.swing.JProgressBar barra_Mensajes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1338,6 +1596,7 @@ public class PrincipalExamen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1348,6 +1607,7 @@ public class PrincipalExamen extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -1362,12 +1622,15 @@ public class PrincipalExamen extends javax.swing.JFrame {
     private javax.swing.JButton jb_Eliminar;
     private javax.swing.JButton jb_EliminarIntegrante;
     private javax.swing.JButton jb_Enviar;
+    private javax.swing.JButton jb_EnviarGrupo;
     private javax.swing.JButton jb_EnviarSolicitud;
     private javax.swing.JButton jb_Ingresar;
     private javax.swing.JButton jb_Llenar;
+    private javax.swing.JButton jb_MostrarConversacion;
     private javax.swing.JDialog jd_CrearGrupo;
     private javax.swing.JDialog jd_CrearUsuario;
     private javax.swing.JDialog jd_EliminarIntegrante;
+    private javax.swing.JDialog jd_EnviarGrupos;
     private javax.swing.JDialog jd_EnviarMensaje;
     private javax.swing.JDialog jd_LogIn;
     private javax.swing.JDialog jd_VerConversacion;
@@ -1380,6 +1643,7 @@ public class PrincipalExamen extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmi_EnviarMensaje;
     private javax.swing.JMenuItem jmi_IngresarSesion;
     private javax.swing.JMenuItem jmi_LeerChats;
+    private javax.swing.JMenuItem jmi_LogOut;
     private javax.swing.JMenuItem jmi_MandarMensaje;
     private javax.swing.JMenuItem jmi_Solicitudes;
     private javax.swing.JMenuItem jmi_VerUsuarios;
@@ -1405,6 +1669,7 @@ public class PrincipalExamen extends javax.swing.JFrame {
     private javax.swing.JTable tabla_Usuarios;
     private javax.swing.JTextArea text_Contenido;
     private javax.swing.JTextArea texto_Conversacion;
+    private javax.swing.JTextArea texto_Grupo;
     // End of variables declaration//GEN-END:variables
 
     AdminUsuarios admin;
@@ -1413,4 +1678,5 @@ public class PrincipalExamen extends javax.swing.JFrame {
     DefaultMutableTreeNode chatSeleccionado;
     Chats chatSelected;
 
+    HiloMensaje hm;
 }
