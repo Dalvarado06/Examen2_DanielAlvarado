@@ -99,6 +99,14 @@ public class PrincipalExamen extends javax.swing.JFrame {
         jScrollPane8 = new javax.swing.JScrollPane();
         lista_Miembros = new javax.swing.JList<>();
         jb_CrearGrupo = new javax.swing.JButton();
+        popup_Grupos = new javax.swing.JPopupMenu();
+        jmi_EliminarMiembro = new javax.swing.JMenuItem();
+        jmi_MandarMensaje = new javax.swing.JMenuItem();
+        jd_EliminarIntegrante = new javax.swing.JDialog();
+        jLabel22 = new javax.swing.JLabel();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        lista_Eliminar = new javax.swing.JList<>();
+        jb_EliminarIntegrante = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         arbol_Receptores = new javax.swing.JTree();
@@ -566,6 +574,57 @@ public class PrincipalExamen extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addComponent(jb_CrearGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
+        );
+
+        jmi_EliminarMiembro.setText("Eliminar Miembro");
+        popup_Grupos.add(jmi_EliminarMiembro);
+
+        jmi_MandarMensaje.setText("Mandar un Mensaje");
+        popup_Grupos.add(jmi_MandarMensaje);
+
+        jd_EliminarIntegrante.setTitle("Eliminar Integrante");
+
+        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel22.setText("Eliminar un Integrante");
+
+        lista_Eliminar.setModel(new DefaultListModel());
+        jScrollPane10.setViewportView(lista_Eliminar);
+
+        jb_EliminarIntegrante.setText("Eliminar");
+        jb_EliminarIntegrante.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_EliminarIntegranteMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_EliminarIntegranteLayout = new javax.swing.GroupLayout(jd_EliminarIntegrante.getContentPane());
+        jd_EliminarIntegrante.getContentPane().setLayout(jd_EliminarIntegranteLayout);
+        jd_EliminarIntegranteLayout.setHorizontalGroup(
+            jd_EliminarIntegranteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_EliminarIntegranteLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel22)
+                .addGap(243, 243, 243))
+            .addGroup(jd_EliminarIntegranteLayout.createSequentialGroup()
+                .addGroup(jd_EliminarIntegranteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_EliminarIntegranteLayout.createSequentialGroup()
+                        .addGap(78, 78, 78)
+                        .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_EliminarIntegranteLayout.createSequentialGroup()
+                        .addGap(312, 312, 312)
+                        .addComponent(jb_EliminarIntegrante, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(87, Short.MAX_VALUE))
+        );
+        jd_EliminarIntegranteLayout.setVerticalGroup(
+            jd_EliminarIntegranteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_EliminarIntegranteLayout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(jLabel22)
+                .addGap(33, 33, 33)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(jb_EliminarIntegrante, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1142,6 +1201,25 @@ public class PrincipalExamen extends javax.swing.JFrame {
         jd_CrearGrupo.setVisible(true);
     }//GEN-LAST:event_jmi_CrearGrupoActionPerformed
 
+    private void jb_EliminarIntegranteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_EliminarIntegranteMouseClicked
+         DefaultListModel modelo = (DefaultListModel) lista_Eliminar.getModel();
+         DefaultListModel modelo2 = (DefaultListModel) lista_Grupos.getModel();
+         int index = lista_Eliminar.getSelectedIndex();
+         int in = lista_Grupos.getSelectedIndex();
+                 
+         if(index >= 0){
+             Grupo g = (Grupo)modelo2.getElementAt(in);
+             Usuario u = (Usuario) modelo.getElementAt(index);
+             
+             
+             
+         }else{
+             JOptionPane.showMessageDialog(this, "No hay nadie seleccionado en la lista!");
+         }
+         
+         
+    }//GEN-LAST:event_jb_EliminarIntegranteMouseClicked
+
     public void cargarAmigos() {
         DefaultListModel modelo = (DefaultListModel) lista_Amigos.getModel();
 
@@ -1259,6 +1337,7 @@ public class PrincipalExamen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1268,6 +1347,7 @@ public class PrincipalExamen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -1280,12 +1360,14 @@ public class PrincipalExamen extends javax.swing.JFrame {
     private javax.swing.JButton jb_CrearGrupo;
     private javax.swing.JButton jb_CrearUsuario;
     private javax.swing.JButton jb_Eliminar;
+    private javax.swing.JButton jb_EliminarIntegrante;
     private javax.swing.JButton jb_Enviar;
     private javax.swing.JButton jb_EnviarSolicitud;
     private javax.swing.JButton jb_Ingresar;
     private javax.swing.JButton jb_Llenar;
     private javax.swing.JDialog jd_CrearGrupo;
     private javax.swing.JDialog jd_CrearUsuario;
+    private javax.swing.JDialog jd_EliminarIntegrante;
     private javax.swing.JDialog jd_EnviarMensaje;
     private javax.swing.JDialog jd_LogIn;
     private javax.swing.JDialog jd_VerConversacion;
@@ -1294,9 +1376,11 @@ public class PrincipalExamen extends javax.swing.JFrame {
     private javax.swing.JMenu jm_Opciones;
     private javax.swing.JMenuItem jmi_CrearGrupo;
     private javax.swing.JMenuItem jmi_CrearUsuario;
+    private javax.swing.JMenuItem jmi_EliminarMiembro;
     private javax.swing.JMenuItem jmi_EnviarMensaje;
     private javax.swing.JMenuItem jmi_IngresarSesion;
     private javax.swing.JMenuItem jmi_LeerChats;
+    private javax.swing.JMenuItem jmi_MandarMensaje;
     private javax.swing.JMenuItem jmi_Solicitudes;
     private javax.swing.JMenuItem jmi_VerUsuarios;
     private javax.swing.JPasswordField jp_Pass;
@@ -1310,11 +1394,13 @@ public class PrincipalExamen extends javax.swing.JFrame {
     private javax.swing.JTextField jt_NumTelefono;
     private javax.swing.JTextField jt_Username;
     private javax.swing.JList<String> lista_Amigos;
+    private javax.swing.JList<String> lista_Eliminar;
     private javax.swing.JList<String> lista_Grupos;
     private javax.swing.JList<String> lista_Miembros;
     private javax.swing.JList<String> lista_Solicitudes;
     private javax.swing.JList<String> lista_am;
     private javax.swing.JPopupMenu popup_Arbol;
+    private javax.swing.JPopupMenu popup_Grupos;
     private javax.swing.JPopupMenu popup_ListaAmigos;
     private javax.swing.JTable tabla_Usuarios;
     private javax.swing.JTextArea text_Contenido;
